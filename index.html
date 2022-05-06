@@ -7,27 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/generalstyle.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="script/database.js"></script>
     <script src="script/script.js"></script>
     <title>Quiz App</title>
 </head>
 
-<body>
-    
+<body onload="init()">
+
     <h1 class="my-5">Quiz App</h1>
 
     <div class="gameCard mx-5">
         <div class="card">
             <img src="img/backgroundCard.png" class="card-img-top">
             <div class="card-body">
-                <h5 class="card-title questionQuizCard mb-4">Frage</h5>
+                <h5 class="card-title questionQuizCard mb-4" id="questionText"></h5>
 
                 <div class="answerRowCard">
-                    <div class="card mb-2 mx-1 w-50 p-3">
+                    <div class="card mb-2 mx-1 w-50 p-3 answerBtn" id="answer_1" onclick="answer('answer_1')">
                         <div class="card-body">
                             Antwort
                         </div>
                     </div>
-                    <div class="card mb-2 mx-1 w-50 p-3">
+                    <div class="card mb-2 mx-1 w-50 p-3 answerBtn" id="answer_2" onclick="answer('answer_2')">
                         <div class="card-body">
                             Antwort
                         </div>
@@ -35,21 +36,21 @@
                 </div>
 
                 <div class="answerRowCard">
-                    <div class="card mb-2 mx-1 w-50 p-3">
+                    <div class="card mb-2 mx-1 w-50 p-3 answerBtn" id="answer_3" onclick="answer('answer_3')">
                         <div class="card-body">
                             Antwort
                         </div>
                     </div>
-                    <div class="card mb-2 mx-1 w-50 p-3">
+                    <div class="card mb-2 mx-1 w-50 p-3 answerBtn" id="answer_4" onclick="answer('answer_4')">
                         <div class="card-body">
                             Antwort
                         </div>
                     </div>
                 </div>
                 
-                <div class="quizCardFooter mx-1">
-                    <p>1 von 5 Fragen</p>
-                    <button type="button" class="btn btn-success">Nächste Frage</button>
+                <div class="quizCardFooter mx-1 pt-2">
+                    <p><b id="actualQuestion"></b> von <b id="lastQuestion"></b> Fragen</p>
+                    <button type="button" id="nextQuestion" disabled onclick="nextQuestion()" class="btn btn-success">Nächste Frage</button>
                 </div>
 
             </div>

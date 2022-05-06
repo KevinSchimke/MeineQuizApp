@@ -30,4 +30,10 @@ h1 {
 .quizCardFooter{
     display: flex;
     justify-content: space-between;
+    border-top: 2px solid lightgray;
+}
+
+.answerBtn:hover{
+    cursor: pointer;
+    background-color: lightgray;
 }
