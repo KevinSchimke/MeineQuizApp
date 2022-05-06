@@ -7,3 +7,27 @@ h1 {
     color: white;
     text-align: center;
 }
+
+.card{
+    width: auto !important;
+    min-width: 18rem;
+}
+
+.gameCard{
+    display: flex;
+    justify-content: center;
+}
+
+.answerRowCard{
+    display: flex;
+    justify-content: center;
+}
+
+.questionQuizCard{
+    text-align: center;
+}
+
+.quizCardFooter{
+    display: flex;
+    justify-content: space-between;
+}

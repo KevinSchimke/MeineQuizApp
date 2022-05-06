@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +8,55 @@
     <link rel="stylesheet" href="style/generalstyle.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="script/script.js"></script>
-    <title>Document</title>
+    <title>Quiz App</title>
 </head>
+
 <body>
-    <h1 class="my-5">Meine Quiz APP</h1>
+    
+    <h1 class="my-5">Quiz App</h1>
+
+    <div class="gameCard mx-5">
+        <div class="card">
+            <img src="img/backgroundCard.png" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title questionQuizCard mb-4">Frage</h5>
+
+                <div class="answerRowCard">
+                    <div class="card mb-2 mx-1 w-50 p-3">
+                        <div class="card-body">
+                            Antwort
+                        </div>
+                    </div>
+                    <div class="card mb-2 mx-1 w-50 p-3">
+                        <div class="card-body">
+                            Antwort
+                        </div>
+                    </div>
+                </div>
+
+                <div class="answerRowCard">
+                    <div class="card mb-2 mx-1 w-50 p-3">
+                        <div class="card-body">
+                            Antwort
+                        </div>
+                    </div>
+                    <div class="card mb-2 mx-1 w-50 p-3">
+                        <div class="card-body">
+                            Antwort
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quizCardFooter mx-1">
+                    <p>1 von 5 Fragen</p>
+                    <button type="button" class="btn btn-success">Nächste Frage</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
 </body>
+
 </html>
