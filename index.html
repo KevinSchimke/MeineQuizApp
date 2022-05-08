@@ -14,7 +14,7 @@
 
 <body onload="init()">
 
-    <h1 class="my-5">Quiz App</h1>
+    <h1 class="my-4">Quiz App</h1>
 
     <div class="gameCard mx-5">
         <div class="card">
@@ -26,6 +26,9 @@
                 <h5 class="card-title textCenter">Quiz beendet</h5>
                 <div class="textCenter mt-2">Du hast <b id="rightQuestions"></b> von <b id="allQuestions"></b> Fragen
                     richtig beantwortet.</div>
+                <div class="restartQuiz mt-2">
+                    <button type="button" onclick="resetQuiz()" class="btn btn-success">Neu Start</button>
+                </div>
             </div>
 
             <div class="card-body" id="quizCard">

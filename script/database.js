@@ -1,5 +1,3 @@
-let currentQuestion = 0;
-let rightAnswer = 0;
 let quizContent =[
     {   
         "question": "Bei welcher Frage sind wir? (Test)",

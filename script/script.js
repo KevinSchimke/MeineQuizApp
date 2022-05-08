@@ -1,3 +1,8 @@
+let currentQuestion = 0;
+let rightAnswer = 0;
+let audioSuccess = new Audio('sounds/success.mp3');
+let audioFail = new Audio('sounds/fail.mp3');
+
 function init() {
     document.getElementById('lastQuestion').innerHTML = quizContent.length;
     showQuestion();
@@ -34,9 +39,11 @@ function answer(selectedAnswer) {
     if (Quiz['right_answer'] == selectedAnswerNumber) {
         document.getElementById(selectedAnswer).classList.add('bg-success')
         rightAnswer++;
+        audioSuccess.play();
     } else {
         document.getElementById(selectedAnswer).classList.add('bg-danger')
         document.getElementById(ID_RightAnswer).classList.add('bg-success')
+        audioFail.play();
     }
     document.getElementById('nextQuestion').disabled = false;
 }
@@ -57,4 +64,15 @@ function resetAnswerBtn() {
     document.getElementById(`answer_3`).classList.remove('bg-success')
     document.getElementById(`answer_4`).classList.remove('bg-danger')
     document.getElementById(`answer_4`).classList.remove('bg-success')
+}
+
+function resetQuiz(){
+    currentQuestion = 0;
+    rightAnswer = 0;
+    document.getElementById('quizEndscreenImg').src = "img/backgroundCard.png";
+    document.getElementById('quizEndscreen').style = "display:none";
+    document.getElementById('quizCard').style = "";
+    document.getElementById('progressBar').style = `width: 0%;`;
+    document.getElementById('progressBar').innerHTML = `0 %`;
+    init();
 }
