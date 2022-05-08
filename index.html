@@ -33,33 +33,17 @@
 
             <div class="card-body" id="quizCard">
                 <h5 class="card-title textCenter mb-4" id="questionText"></h5>
-
-                <div class="answerRowCard">
-                    <div class="card mb-2 mx-1 w-50 p-3 answerBtn" id="answer_1" onclick="answer('answer_1')">
-                        <div class="card-body">
-                            Antwort
-                        </div>
+                <div id="overlayBtns">
+                    <div class="answerRowCard">
+                        <button type="button" class="card mb-2 mx-1 w-50 p-3 answerBtn" id="answer_1" enable onclick="answer('answer_1')"></button>
+                        <button type="button" class="card mb-2 mx-1 w-50 p-3 answerBtn" id="answer_2" enable onclick="answer('answer_2')"></button>
                     </div>
-                    <div class="card mb-2 mx-1 w-50 p-3 answerBtn" id="answer_2" onclick="answer('answer_2')">
-                        <div class="card-body">
-                            Antwort
-                        </div>
+
+                    <div class="answerRowCard">
+                        <button type="button" class="card mb-2 mx-1 w-50 p-3 answerBtn" id="answer_3" enable onclick="answer('answer_3')"></button>
+                        <button type="button" class="card mb-2 mx-1 w-50 p-3 answerBtn" id="answer_4" enable onclick="answer('answer_4')"></button>
                     </div>
                 </div>
-
-                <div class="answerRowCard">
-                    <div class="card mb-2 mx-1 w-50 p-3 answerBtn" id="answer_3" onclick="answer('answer_3')">
-                        <div class="card-body">
-                            Antwort
-                        </div>
-                    </div>
-                    <div class="card mb-2 mx-1 w-50 p-3 answerBtn" id="answer_4" onclick="answer('answer_4')">
-                        <div class="card-body">
-                            Antwort
-                        </div>
-                    </div>
-                </div>
-
                 <div class="quizCardFooter mx-1 pt-2">
                     <p><b id="actualQuestion"></b> von <b id="lastQuestion"></b> Fragen</p>
                     <button type="button" id="nextQuestion" disabled onclick="nextQuestion()"

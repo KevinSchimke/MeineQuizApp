@@ -46,3 +46,7 @@ h1 {
     display: flex;
     justify-content: center;
 }
+
+.overlayBtns{
+    z-index: 1;
+}
