@@ -18,9 +18,14 @@
 
     <div class="gameCard mx-5">
         <div class="card">
-            <img src="img/backgroundCard.png" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title questionQuizCard mb-4" id="questionText"></h5>
+            <img src="img/backgroundCard.png" id="quizEndscreenImg">
+            <div class="card-body" style="display: none;" id="quizEndscreen">
+                <h5 class="card-title textCenter">Quiz beendet</h5>
+                <div class="textCenter mt-2">Du hast <b id="rightQuestions"></b> von <b id="allQuestions"></b> Fragen richtig beantwortet.</div>
+            </div>
+
+            <div class="card-body" id="quizCard">
+                <h5 class="card-title textCenter mb-4" id="questionText"></h5>
 
                 <div class="answerRowCard">
                     <div class="card mb-2 mx-1 w-50 p-3 answerBtn" id="answer_1" onclick="answer('answer_1')">
