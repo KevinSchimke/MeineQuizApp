@@ -5,14 +5,17 @@ function init() {
 
 function showQuestion() {
     let Quiz = quizContent[(currentQuestion)];
+    let percent = Math.round((currentQuestion / quizContent.length) * 100);
+    document.getElementById('progressBar').style = `width: ${percent}%;`;
+    document.getElementById('progressBar').innerHTML = `${percent} %`;
 
     if (currentQuestion >= quizContent.length) {
-        document.getElementById('quizEndscreen').style="";
-        document.getElementById('quizCard').style="display:none";
+        document.getElementById('quizEndscreen').style = "";
+        document.getElementById('quizCard').style = "display:none";
         document.getElementById('allQuestions').innerHTML = quizContent.length;
         document.getElementById('rightQuestions').innerHTML = rightAnswer;
         document.getElementById('quizEndscreenImg').src = "img/Trophy.png";
-        document.getElementById('quizEndscreenImg').classList.add('mx-2','mt-2');
+        document.getElementById('quizEndscreenImg').classList.add('mx-2', 'my-2');
 
     } else {
         document.getElementById('actualQuestion').innerHTML = currentQuestion + 1;
@@ -21,6 +24,7 @@ function showQuestion() {
         document.getElementById('answer_2').innerHTML = Quiz['answer_2'];
         document.getElementById('answer_3').innerHTML = Quiz['answer_3'];
         document.getElementById('answer_4').innerHTML = Quiz['answer_4'];
+
     }
 }
 function answer(selectedAnswer) {
@@ -29,7 +33,7 @@ function answer(selectedAnswer) {
     let ID_RightAnswer = `answer_${Quiz['right_answer']}`;
     if (Quiz['right_answer'] == selectedAnswerNumber) {
         document.getElementById(selectedAnswer).classList.add('bg-success')
-        rightAnswer ++;
+        rightAnswer++;
     } else {
         document.getElementById(selectedAnswer).classList.add('bg-danger')
         document.getElementById(ID_RightAnswer).classList.add('bg-success')

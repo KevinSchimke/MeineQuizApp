@@ -19,9 +19,13 @@
     <div class="gameCard mx-5">
         <div class="card">
             <img src="img/backgroundCard.png" id="quizEndscreenImg">
+            <div class="progress">
+                <div class="progress-bar" id="progressBar" role="progressbar" style="width: 25%;">0%</div>
+            </div>
             <div class="card-body" style="display: none;" id="quizEndscreen">
                 <h5 class="card-title textCenter">Quiz beendet</h5>
-                <div class="textCenter mt-2">Du hast <b id="rightQuestions"></b> von <b id="allQuestions"></b> Fragen richtig beantwortet.</div>
+                <div class="textCenter mt-2">Du hast <b id="rightQuestions"></b> von <b id="allQuestions"></b> Fragen
+                    richtig beantwortet.</div>
             </div>
 
             <div class="card-body" id="quizCard">
@@ -52,10 +56,11 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="quizCardFooter mx-1 pt-2">
                     <p><b id="actualQuestion"></b> von <b id="lastQuestion"></b> Fragen</p>
-                    <button type="button" id="nextQuestion" disabled onclick="nextQuestion()" class="btn btn-success">Nächste Frage</button>
+                    <button type="button" id="nextQuestion" disabled onclick="nextQuestion()"
+                        class="btn btn-success">Nächste Frage</button>
                 </div>
 
             </div>
