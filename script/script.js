@@ -1,3 +1,4 @@
+let selectedQuiz;
 let currentQuestion = 0;
 let rightAnswer = 0;
 let audioSuccess = new Audio('sounds/success.mp3');
@@ -12,22 +13,23 @@ function disabledBtn(btnID){
 }
 
 function init() {
-    document.getElementById('lastQuestion').innerHTML = quizContent.length;
-    showQuestion();
+    showStartScreen();
 }
 
-function showQuestion() {
-    let Quiz = quizContent[(currentQuestion)];
+function showQuestion(QuizNumber) {
+    selectedQuiz = filterQuiz(QuizNumber);
+    let QuizPosition = selectedQuiz[(currentQuestion)];
     updateProgressbar();
-    if (currentQuestion >= quizContent.length) {
+    document.getElementById('lastQuestion').innerHTML = selectedQuiz.length;
+    if (currentQuestion >= selectedQuiz.length) {
         showEndscreen();
     } else {
-        showNewQuestion(Quiz);
+        showNewQuestion(QuizPosition);
     }
 }
 
 function updateProgressbar() {
-    let percent = Math.round((currentQuestion / quizContent.length) * 100);
+    let percent = Math.round((currentQuestion / selectedQuiz.length) * 100);
     document.getElementById('progressBar').style = `width: ${percent}%;`;
     document.getElementById('progressBar').innerHTML = `${percent} %`;
 }
@@ -35,23 +37,24 @@ function updateProgressbar() {
 function showEndscreen() {
     document.getElementById('quizEndscreen').style = "";
     document.getElementById('quizCard').style = "display:none";
-    document.getElementById('allQuestions').innerHTML = quizContent.length;
+    document.getElementById('allQuestions').innerHTML = selectedQuiz.length;
     document.getElementById('rightQuestions').innerHTML = rightAnswer;
     document.getElementById('quizEndscreenImg').src = "img/Trophy.png";
     document.getElementById('quizEndscreenImg').classList.add('mx-2', 'my-2');
 }
 
-function showNewQuestion(Quiz) {
+function showNewQuestion(QuizPosition) {
+    
     document.getElementById('actualQuestion').innerHTML = currentQuestion + 1;
-    document.getElementById('questionText').innerHTML = Quiz['question'];
-    document.getElementById('answer_1').innerHTML = Quiz['answer_1'];
-    document.getElementById('answer_2').innerHTML = Quiz['answer_2'];
-    document.getElementById('answer_3').innerHTML = Quiz['answer_3'];
-    document.getElementById('answer_4').innerHTML = Quiz['answer_4'];
+    document.getElementById('questionText').innerHTML = QuizPosition['question'];
+    document.getElementById('answer_1').innerHTML = QuizPosition['answer_1'];
+    document.getElementById('answer_2').innerHTML = QuizPosition['answer_2'];
+    document.getElementById('answer_3').innerHTML = QuizPosition['answer_3'];
+    document.getElementById('answer_4').innerHTML = QuizPosition['answer_4'];
 }
 
 function answer(selectedAnswer) {
-    let Quiz = quizContent[(currentQuestion)];
+    let Quiz = selectedQuiz[(currentQuestion)];
     let selectedAnswerNumber = selectedAnswer.slice(-1);
     let ID_RightAnswer = `answer_${Quiz['right_answer']}`;
     lockAnswerBtn();
@@ -64,29 +67,29 @@ function answer(selectedAnswer) {
 }
 
 function successAnswer(selectedAnswer) {
-    document.getElementById(selectedAnswer).classList.add('bg-success')
+    document.getElementById(selectedAnswer).classList.add('bg-success');
     rightAnswer++;
     audioSuccess.play();
 }
 
 function failAnswer(selectedAnswer,ID_RightAnswer) {
-    document.getElementById(selectedAnswer).classList.add('bg-danger')
-    document.getElementById(ID_RightAnswer).classList.add('bg-success')
+    document.getElementById(selectedAnswer).classList.add('bg-danger');
+    document.getElementById(ID_RightAnswer).classList.add('bg-success');
     audioFail.play();
 }
 
-function nextQuestion() {
+function nextQuestion(QuizNumber) {
     currentQuestion++;
     disabledBtn('nextQuestion');
     unlockAnswerBtn();
     resetAnswerBtn();
-    showQuestion();
+    showQuestion(QuizNumber);
 }
 
 function resetAnswerBtn() {
     for (let index = 1; index < 5; index++) {
-        document.getElementById(`answer_${index}`).classList.remove('bg-danger')
-        document.getElementById(`answer_${index}`).classList.remove('bg-success')
+        document.getElementById(`answer_${index}`).classList.remove('bg-danger');
+        document.getElementById(`answer_${index}`).classList.remove('bg-success');
     }
 }
 
@@ -112,3 +115,20 @@ function unlockAnswerBtn(){
         enableBtn(`answer_${index}`);
     }                                              
 }
+
+
+
+function showStartScreen(){
+    document.getElementById('content').innerHTML = "";
+    document.getElementById('content').innerHTML = templateGameMenu();
+}
+
+function startQuiz(QuizNumber){
+    document.getElementById('content').innerHTML = "";
+    document.getElementById('content').innerHTML = templateQuiz(QuizNumber);
+    showQuestion(QuizNumber);
+}
+
+function filterQuiz(filterQuiz){
+    return quizContent.filter(quiz => quiz.quiz_name == filterQuiz);
+} 

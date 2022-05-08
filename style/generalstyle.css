@@ -33,7 +33,7 @@ h1 {
     border-top: 2px solid lightgray;
 }
 
-.answerBtn:hover{
+.answerBtn,.quizBtn:hover{
     cursor: pointer;
     background-color: lightgray;
 }
@@ -47,6 +47,8 @@ h1 {
     justify-content: center;
 }
 
-.overlayBtns{
-    z-index: 1;
+.gameMenu{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
