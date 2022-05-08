@@ -1,6 +1,6 @@
 body{
-    margin:0;
     background-image: url(/img/background.jpg);
+    word-break: break-all;
 }
 
 h1 {
@@ -51,4 +51,32 @@ h1 {
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.yourQuizBtn{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inputfieldQuizInfo{
+    width: 150px;
+}
+
+.yourQuizBtnEnter{
+    width: 160px;
+}
+
+@media (max-width : 450px){
+    .mediaInputAmount{
+        display: flex;
+        flex-direction: column;
+    }
+    .mediaAmountInput,.mediawidth100{
+        width: 100% !important;
+    }
+    .inputfieldQuizInfo{
+        width: unset;
+    }
+    
 }
