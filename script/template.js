@@ -3,11 +3,11 @@ function templateGameMenu(titleQuiz) {
             <div class="gameMenu card-body">
                 <h5 class="card-title textCenter">Wähle dein Quiz</h5>
                 <button type="button" class="card w-50 p-3 quizBtn mb-2"
-                    onclick="startQuiz('Quiz_1')">Quiz 1</button>
+                    onclick="startQuiz('Quiz_1')">Technik</button>
                 <button type="button" class="card w-50 p-3 quizBtn mb-2"
-                    onclick="startQuiz('Quiz_2')">Quiz 2</button>
+                    onclick="startQuiz('Quiz_2')">Zeitliches</button>
                 <button type="button" class="card w-50 p-3 quizBtn mb-2"
-                    onclick="startQuiz('Quiz_3')">Quiz 3</button>
+                    onclick="startQuiz('Quiz_3')">Natur</button>
                 <button type="button" class="card w-50 p-3 quizBtn mb-2" id="yourQuizName"
                     onclick="startQuiz('${titleQuiz}')">Dein Quiz spielen</button>
                 <h5 class="card-title textCenter">Oder erstelle dein eigenes Quiz</h5>
